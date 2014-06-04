@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>AABA9AB0-A020-48D2-A7F3-491F5EED5038</string>
+	<string>091A46C8-F80E-48B1-94AD-A3CD0720260E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Prob49_PrimePermutation</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>A4EF85B6-D631-40FB-B43D-229490E39F71</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Euler</string>
+			<string>Prob49_PrimePermutation</string>
 		</dict>
 	</array>
 </dict>
