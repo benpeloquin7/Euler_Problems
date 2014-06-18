@@ -13,7 +13,7 @@
 //3) isRelated() [Arithmetic]
 
 bool diffDigits(int n);
-bool isComposite(int n);
+bool isPrime(int n);
 int*& permutations(int n);
 bool related(const int*& arr_ptr);
 
@@ -23,9 +23,29 @@ using namespace std;
 
 int main()
 {
+    
 
-    cout << diffDigits(3346) << endl;
-    cout << isComposite(7) << endl;
+    const int* ptr = permutations(1487);
+    cout << related(ptr);
+    
+    const int* ptr2 = permutations(1279);
+    cout << related(ptr2);
+
+/*
+    for (int i = 1000; i <= 9999; ++i) {
+        if (diffDigits(i) && isPrime(i)) {
+            cout << i << endl;
+            const int* ptr = permutations(i);
+            
+            if (related(ptr)) {
+                cout << "\nrelated permutations: ";
+                cout << i << endl;
+            }
+        }
+    }
+*/
+ 
+/*  cout << isComposite(7) << endl;
     
     const int* ptr = permutations(1487);
     
@@ -33,7 +53,8 @@ int main()
         cout << ptr[i] << ' ';
     }
     
-    cout << endl << related(ptr);
+    cout << endl << related(ptr) << endl << endl;
+*/
     
     return 0;
 }
@@ -51,19 +72,19 @@ bool diffDigits(int n) {
     //Compare contents of array
     for (int i = 0; i < 3; ++i) {
         for (int j = i + 1; j< 4; ++j)
-            if (dig[i] == dig[j])
-                return 1;
+            if (dig[i] == dig[j] || dig[i] == 0 || dig[j] == 0)
+                return 0;
     }
     
     //True if we cycle through array
-    return 0;
+    return 1;
 }
 
-bool isComposite(int n) {
+bool isPrime(int n) {
     int m = n / 2;
     
     for (int i = 2; i < m; ++i) {
-        if (m % i == 0)
+        if (n % i == 0)
             return 0;
     }
     
@@ -72,7 +93,7 @@ bool isComposite(int n) {
 
 int*& permutations(int n) {
     int m = n;
-    int i_dig[4];
+    int i_dig[4] = {0};
     int* digs = new int[6];
     
     //Read digits into an array
@@ -108,28 +129,28 @@ int*& permutations(int n) {
 //More here
 bool related(const int*& arr_ptr) {
     
-    //To hold all differences
-    int count[15] = {0};
+    //Array to hold all differences
+    int count[10] = {0};
     int n = 0;
-    for (int i = 0; i < 5; ++i) {
-        for (int j = i + 1; j < 6; ++j) {
-            cout << endl << n << ": " << arr_ptr[j] << ", " << arr_ptr[i];
+    for (int i = 0; i < 4; ++i) {
+        for (int j = i + 1; j < 5; ++j) {
+            //cout << endl << n << ": " << arr_ptr[j] << ", " << arr_ptr[i];
             count[n] = arr_ptr[j] - arr_ptr[i];
             n++;
         }
     }
  
-    int dups = 0;
-    for (int i = 0; i < 14; ++i) {
-        for (int j = i + 1; j < 15; ++j) {
+    int dups = 1;
+    for (int i = 0; i < 9; ++i) {
+        for (int j = i + 1; j < 10; ++j) {
             if (count[i] == count[j]) {
                 ++dups;
-                cout << i << ' ' << j << endl;
+                //cout << endl << i << ' ' << j << endl;
             }
             
         }
     }
     
-    return (dups == 4);
+    return (dups == 2);
     
 }
