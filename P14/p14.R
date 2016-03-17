@@ -17,7 +17,7 @@ recurse <- function(left, right, total) {
 }
 # recurse(20, 20, 0)
 
-## close formed computation [[Centroal Binomial Coef]]
+## closed form computation [[Centroal Binomial Coef]]
 factorial <- function(n) {
   if (n == 0) return(1)
   return(n * factorial(n-1))
